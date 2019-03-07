@@ -28,9 +28,9 @@ Learning nginix
 Copy the link in the latest stable version and download it with wget or curl
 
 #### 3. Extract the .tar.gz directory by typing 
-```tar -zxvf nginx-1.15.tar.gz```  
+```tar -zxvf nginx-1.15.9.tar.gz```  
 then go to the extracted folder  
-```cd nginx-1.15```
+```cd nginx-1.15.9```
 
 #### 4. Configure the downloaded project
 
