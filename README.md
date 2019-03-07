@@ -1,7 +1,7 @@
 # Nginix
 Learning nginix
 
-## Basic NGINIX instalation
+### Basic NGINIX instalation
 
 #### 1. Update your system  
 ```sudo apt-get update```  
@@ -16,7 +16,7 @@ Learning nginix
 #### 4. Next we can check the if and port of the server  
 ```ifconfig```  
 
-## Instalation with modules  
+### Instalation with modules  
 
 
 #### 1. Update your system  
