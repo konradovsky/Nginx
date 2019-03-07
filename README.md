@@ -1,6 +1,8 @@
 # Nginix
 Learning nginix
 
+------
+
 ### Basic NGINIX instalation
 
 #### 1. Update your system  
@@ -11,13 +13,14 @@ Learning nginix
 ```sudo apt-get install nginx```  
 
 #### 3. After installing we can check if the nginx process run by:  
-```ps aux | grep ngnix```  
+```ps aux | grep nginx```  
 
 #### 4. Next we can check the if and port of the server  
 ```ifconfig```  
 
-### Instalation with modules  
+------
 
+### Instalation with modules  
 
 #### 1. Update your system  
 ```sudo apt-get update```  
@@ -65,4 +68,28 @@ Custom cofig
 ```nginx```
 
 #### 9. Check if the nginx process is run  
-```ps aux | grep ngnix```  
+```ps aux | grep nginx```  
+
+------
+
+### Adding an Nginix Service  
+[Site with systemd init file](https://www.nginx.com/resources/wiki/start/topics/examples/initscripts/)  
+
+#### 1. Create a init file with
+```nano /lib/systemd/system/nginx.service```  
+and then copy the init script inside and change the PIDFile, ExecStartPre, ExecStart for your paths
+```[Unit]
+Description=The NGINX HTTP and reverse proxy server
+After=syslog.target network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=forking
+PIDFile=/var/run/nginx.pid
+ExecStartPre=/usr/bin/nginx -t
+ExecStart=/usr/bin/nginx
+ExecReload=/usr/sbin/nginx -s reload
+ExecStop=/bin/kill -s QUIT $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target```
