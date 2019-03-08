@@ -100,4 +100,7 @@ WantedBy=multi-user.target
 ```systemctl start nginx```  
 ```systemctl status nginx```
 
+### 3. Enable startup on boot  
+
+```systemctl enable nginx```
 
