@@ -136,4 +136,25 @@ Next we can restart or reload the server, restarting means that the nginx is shu
 
 ```systemctl reload nginix```
 
+### 4. Add types with mime  
+In the config file ```conf/nginx.conf``` add  
+``` include: mime.types;  ```
+
+Should look like this:  
+```
+events {
+    worker_connections  1024;
+}
+
+http {
+    include: mime.types;
+    server {
+        listen: 80;
+        server_name: 178.128.197.101;
+        root: /sites/demo;
+    }
+}
+```  
+
+
 
