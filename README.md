@@ -1,7 +1,8 @@
 # Nginix
 Learning nginix
 
-------
+
+## # Installation
 
 ### Basic NGINIX instalation
 
@@ -69,10 +70,8 @@ Custom cofig
 
 #### 9. Check if the nginx process is run  
 ```ps aux | grep nginx```  
-
-------
-
-### Adding an Nginix Service  
+  
+## # Adding an Nginix Service  
 [Site with systemd init file](https://www.nginx.com/resources/wiki/start/topics/examples/initscripts/)  
 
 #### 1. Create a init file with
@@ -102,5 +101,39 @@ WantedBy=multi-user.target
 
 ### 3. Enable startup on boot  
 
-```systemctl enable nginx```
+```systemctl enable nginx```  
+  
+ 
+
+## # Creating a Virtual Host
+
+### 1. Edit the nginx.conf file
+
+```nano nginx-1.15.9/conf/nginx.conf```  
+
+### 2. Add the demo customization
+
+Port 80  is for HTTP requests  
+Port 443 is for HTTPS requests  
+
+```
+events {}
+
+http {
+    listen: 80;
+    server_name: 178.128.197.101;
+
+    root: /sites/demo;
+}
+```
+
+### 3. Reload nginx  
+If you want to check if the syntax is ok you can use  
+
+```nginix -t```  
+
+Next we can restart or reload the server, restarting means that the nginx is shutted down and then booted up again, reload just checks if the new file is ok an then it reloades the nginx without shutiing it down.   
+
+```systemctl reload nginix```
+
 
