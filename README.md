@@ -92,4 +92,12 @@ ExecStop=/bin/kill -s QUIT $MAINPID
 PrivateTmp=true
 
 [Install]
-WantedBy=multi-user.target```
+WantedBy=multi-user.target
+```
+
+### 2. Start and check the status  
+
+```systemctl start nginx```  
+```systemctl status nginx```
+
+
