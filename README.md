@@ -1,10 +1,10 @@
-# Nginix
-Learning nginix
+# Nginx
+Learning nginx
 
 
 ## # Installation
 
-### Basic NGINIX instalation
+### Basic NGINX instalation
 
 #### 1. Update your system  
 ```sudo apt-get update```  
@@ -27,7 +27,7 @@ Learning nginix
 ```sudo apt-get update```  
 ```sudo apt-get upgrade```  
 
-#### 2. Download the latest stable version from [nginix.org](https://nginx.org/en/download.html)
+#### 2. Download the latest stable version from [nginx.org](https://nginx.org/en/download.html)
 ``` wget https://nginx.org/download/nginx-1.15.9.tar.gz ```  
 Copy the link in the latest stable version and download it with wget or curl
 
@@ -71,7 +71,7 @@ Custom cofig
 #### 9. Check if the nginx process is run  
 ```ps aux | grep nginx```  
   
-## # Adding an Nginix Service  
+## # Adding an Nginx Service  
 [Site with systemd init file](https://www.nginx.com/resources/wiki/start/topics/examples/initscripts/)  
 
 #### 1. Create a init file with
@@ -86,7 +86,7 @@ Type=forking
 PIDFile=/var/run/nginx.pid
 ExecStartPre=/usr/bin/nginx -t
 ExecStart=/usr/bin/nginx
-ExecReload=/usr/sbin/nginx -s reload
+ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
 PrivateTmp=true
 
@@ -121,7 +121,7 @@ events {}
 
 http {
     listen 80;
-    server_name 178.128.197.101;
+    server_name 000.000.000.000;
 
     root /sites/demo;
 }
@@ -142,19 +142,21 @@ In the config file ```conf/nginx.conf``` add
 
 Should look like this:  
 ```
-events {
-    worker_connections  1024;
-}
+events {}
 
 http {
     include: mime.types;
     server {
         listen 80;
-        server_name 178.128.197.101;
+        server_name 000.000.000.000; #ipadress
         root /sites/demo;
     }
 }
 ```  
+Remember that /sites/demo need to be in the root directory of our server! Not /root/sites/demo!  
+~ _At the root of the filesystem, not he actual root user's home directory._  
+
+
 
 
 
