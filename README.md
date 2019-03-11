@@ -120,10 +120,10 @@ Port 443 is for HTTPS requests
 events {}
 
 http {
-    listen: 80;
-    server_name: 178.128.197.101;
+    listen 80;
+    server_name 178.128.197.101;
 
-    root: /sites/demo;
+    root /sites/demo;
 }
 ```
 
@@ -149,9 +149,9 @@ events {
 http {
     include: mime.types;
     server {
-        listen: 80;
-        server_name: 178.128.197.101;
-        root: /sites/demo;
+        listen 80;
+        server_name 178.128.197.101;
+        root /sites/demo;
     }
 }
 ```  
